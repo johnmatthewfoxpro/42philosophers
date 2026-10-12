@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:09:43 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/12 10:33:41 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 13:38:17 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	simulate_finished(t_data *data)
 	return (finished);
 }
 
-static void	all_eaten(t_data *data)
+static void	all_finished(t_data *data)
 {
 	int	i;
 
@@ -88,8 +88,8 @@ void	*monitor_routine(void *arg)
 			}
 			i++;
 		}
-		all_eaten(data);
-		ft_usleep(10, data);
+		all_finished(data);
+		ft_usleep(5, data);
 	}
 	return (NULL);
 }
