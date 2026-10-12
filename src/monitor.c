@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:09:43 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/12 14:24:39 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 18:17:26 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	*monitor_routine(void *arg)
 			pthread_mutex_unlock(&data->philos[i].meal_ok);
 			if ((get_time() - last_eat) > data->time_to_die)
 			{
-				printf("debug philo %d, last eat = %zd, now = %zd, elapsed = %zd\n", data->philos[i].id, last_eat, get_time(), get_time() - last_eat);
+				// printf("debug philo %d, last eat = %zd, now = %zd, elapsed = %zd\n", data->philos[i].id, last_eat, get_time(), get_time() - last_eat);
 				death(&data->philos[i]);
 				return (NULL);
 			}

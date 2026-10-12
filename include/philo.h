@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 14:02:09 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 19:16:53 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_data
 	int				no_to_eat;
 	int				all_eaten;
 	int				dead;
+	int				pause;
 	ssize_t			sim_start;
 	t_philos		*philos;
 	pthread_mutex_t	*forks;
@@ -62,6 +63,8 @@ int		ft_usleep(ssize_t milliseconds, t_data *data);
 ssize_t	get_time(void);
 void	set_time(t_data *data);
 
+int		even_forks(t_philos *philo);
+int		odd_forks(t_philos *philo);
 int		init_forks(t_data *data);
 void	assign_forks(t_data *data);
 

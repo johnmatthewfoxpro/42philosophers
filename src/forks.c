@@ -6,11 +6,59 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 16:01:18 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 14:17:28 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 19:17:31 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	even_forks(t_philos *philo)
+{
+	// printf("debug %zd philo %d waiting for right fork\n", get_time() - philo->data->sim_start, philo->id);
+	pthread_mutex_lock(philo->right_fork);
+	// printf("debug %zd philo %d acquired right fork\n", get_time() - philo->data->sim_start, philo->id);
+	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	{
+		pthread_mutex_unlock(philo->right_fork);
+		return (1);
+	}
+	print_output(philo, "has taken a fork");
+	// printf("debug %zd philo %d waiting for left fork\n", get_time() - philo->data->sim_start, philo->id);
+	pthread_mutex_lock(philo->left_fork);
+	// printf("debug %zd philo %d acquired left fork\n", get_time() - philo->data->sim_start, philo->id);
+	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	{
+		pthread_mutex_unlock(philo->left_fork);
+		pthread_mutex_unlock(philo->right_fork);
+		return (1);
+	}
+	print_output(philo, "has taken a fork");
+	return (0);
+}
+
+int	odd_forks(t_philos *philo)
+{
+	// printf("debug %zd philo %d waiting for left fork\n", get_time() - philo->data->sim_start, philo->id);
+	pthread_mutex_lock(philo->left_fork);
+	// printf("debug %zd philo %d acquired left fork\n", get_time() - philo->data->sim_start, philo->id);
+	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	{
+		pthread_mutex_unlock(philo->left_fork);
+		return (1);
+	}
+	print_output(philo, "has taken a fork");
+	// printf("debug %zd philo %d waiting for right fork\n", get_time() - philo->data->sim_start, philo->id);
+	pthread_mutex_lock(philo->right_fork);
+	// printf("debug %zd philo %d acquired right fork\n", get_time() - philo->data->sim_start, philo->id);
+	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	{
+		pthread_mutex_unlock(philo->right_fork);
+		pthread_mutex_unlock(philo->left_fork);
+		return (1);
+	}
+	print_output(philo, "has taken a fork");
+	return (0);
+}
 
 void	assign_forks(t_data *data)
 {
