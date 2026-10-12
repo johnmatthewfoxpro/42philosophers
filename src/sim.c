@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:18:36 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 19:42:04 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 19:48:09 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	full(t_philos *philo)
 
 int	pickup_fork(t_philos *philo)
 {
-	// printf("debug %zd philo %d wants forks \n", get_time() - philo->data->sim_start ,philo->id);
 	if (philo->id % 2 == 0)
 	{
 		if (even_forks(philo))
@@ -39,7 +38,6 @@ int	pickup_fork(t_philos *philo)
 		if (odd_forks(philo))
 			return (1);
 	}
-	// printf("debug %zd philo %d has forks \n", get_time() - philo->data->sim_start ,philo->id);
 	return (0);
 }
 
@@ -49,7 +47,6 @@ int	eat(t_philos *philo)
 		return (1);
 	pthread_mutex_lock(&philo->meal_ok);
 	philo->last_eat = get_time();
-	// printf("debug %zd philo %d starts eating\n", get_time() - philo->data->sim_start ,philo->id);
 	pthread_mutex_unlock(&philo->meal_ok);
 	print_output(philo, "is eating");
 	if (ft_usleep(philo->data->time_to_eat, philo->data))
@@ -65,16 +62,12 @@ void	drop_fork(t_philos *philo)
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_unlock(philo->left_fork);
-		// print_output(philo, "has dropped a left fork");
 		pthread_mutex_unlock(philo->right_fork);
-		// print_output(philo, "has dropped a right fork");
 	}
 	else
 	{
 		pthread_mutex_unlock(philo->right_fork);
-		// print_output(philo, "has dropped a right fork");
 		pthread_mutex_unlock(philo->left_fork);
-		// print_output(philo, "has dropped a left fork");
 	}
 	return ;
 }
