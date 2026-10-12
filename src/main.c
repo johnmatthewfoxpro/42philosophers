@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:19 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 15:38:38 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 10:48:38 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static int	init_philos(t_data *data)
 		if (pthread_mutex_init(&data->philos[i].meal_ok, NULL))
 			return (1);
 		data->philos[i].meal_mut = 1;
+		data->philos[i].dead = &data->dead;
 		i++;
 	}
 	return (0);

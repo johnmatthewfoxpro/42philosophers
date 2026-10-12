@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 15:38:09 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 12:37:44 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_philos
 	pthread_mutex_t	meal_ok;
 	int				meal_mut;
 	t_data			*data;
+	int				*dead;
 }	t_philos;
 
 typedef struct s_data

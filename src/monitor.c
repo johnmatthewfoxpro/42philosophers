@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: j.fox <jfox.42angouleme@gmail.com>         +#+  +:+       +#+        */
+/*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:09:43 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/10 12:14:52 by j.fox            ###   ########.fr       */
+/*   Updated: 2026/10/12 10:33:41 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	simulate_death(t_data *data)
 static void	death(t_philos *philo)
 {
 	t_data	*data;
-	
+
 	data = philo->data;
 	pthread_mutex_lock(&data->print_ok);
 	pthread_mutex_lock(&data->dead_ok);

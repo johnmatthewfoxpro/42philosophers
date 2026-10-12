@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 16:08:28 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 15:15:17 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 10:33:23 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	*philo_routine(void *arg)
 		}
 		drop_fork(philo);
 		if (philosophize_this(philo))
-			break;
+			break ;
 	}
 	return (NULL);
 }

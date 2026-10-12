@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:18:36 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 15:54:50 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 10:34:20 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,6 @@ int	full(t_philos *philo)
 
 int	pickup_fork(t_philos *philo)
 {
-	// if (philo->id % 2 == 0)
-	// {
-	// 	pthread_mutex_lock(philo->right_fork);
-	// 	print_output(philo, "has taken a fork");
-	// 	pthread_mutex_lock(philo->left_fork);
-	// 	print_output(philo, "has taken a fork");
-	// }
-	// else
-	// {
-	// 	pthread_mutex_lock(philo->left_fork);
-	// 	print_output(philo, "has taken a fork");
-	// 	pthread_mutex_lock(philo->right_fork);
-	// 	print_output(philo, "has taken a fork");
-	// }
 	if (philo->id % 2 == 0)
     {
         pthread_mutex_lock(philo->right_fork);
