@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:19 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 13:34:37 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 14:01:01 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ static int	init_sim(t_data *data)
 		return (1);
 	}
 	assign_forks(data);
-	set_time(data);
 	return (0);
 }
 

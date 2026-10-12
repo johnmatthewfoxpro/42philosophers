@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 16:08:28 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 10:33:23 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 14:01:10 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	create_threads(t_data *data)
 	int	i;
 
 	i = 0;
+	set_time(data);
 	if (data->number_of_philos == 1)
 	{
 		single_philo(&data->philos[i]);

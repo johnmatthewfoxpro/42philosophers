@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 13:34:21 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/12 14:02:09 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct s_data
 
 int		init_data(t_data *data, int argc, char **argv);
 
-int		ft_usleep(size_t milliseconds, t_data *data);
+int		ft_usleep(ssize_t milliseconds, t_data *data);
 ssize_t	get_time(void);
 void	set_time(t_data *data);
 
