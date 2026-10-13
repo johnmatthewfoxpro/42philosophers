@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:18:36 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 19:48:09 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 15:11:22 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,11 @@ void	drop_fork(t_philos *philo)
 
 int	philosophize_this(t_philos *philo)
 {
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
-		return (1);
 	print_output(philo, "is sleeping");
 	if (ft_usleep(philo->data->time_to_sleep, philo->data))
 		return (1);
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
-		return (1);
 	print_output(philo, "is thinking");
-	ft_usleep(philo->data->pause, philo->data);
+	ft_usleep(philo->data->time_to_eat - philo->data->time_to_sleep, philo->data);
+	usleep(200);
 	return (0);
 }

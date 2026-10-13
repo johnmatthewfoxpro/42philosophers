@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 13:11:22 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/12 19:34:45 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 14:36:23 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ void	set_time(t_data *data)
 	int	i;
 
 	i = 0;
-	data->pause = data->time_to_die - data->time_to_eat - data->time_to_sleep;
-	if (data->pause > 10)
-		data->pause = 10;
 	data->sim_start = get_time();
 	while (i < data->number_of_philos)
 	{

@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/12 19:16:53 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 11:08:54 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ typedef struct s_data
 	int				no_to_eat;
 	int				all_eaten;
 	int				dead;
-	int				pause;
 	ssize_t			sim_start;
 	t_philos		*philos;
 	pthread_mutex_t	*forks;
