@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 11:08:54 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 18:24:13 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philos
 {
 	int				id;
 	int				eaten;
+	int				end;
 	ssize_t			last_eat;
 	pthread_t		thread;
 	pthread_mutex_t	*left_fork;
@@ -41,8 +42,7 @@ typedef struct s_data
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				no_to_eat;
-	int				all_eaten;
-	int				dead;
+	int				end;
 	ssize_t			sim_start;
 	t_philos		*philos;
 	pthread_mutex_t	*forks;
@@ -70,8 +70,6 @@ void	assign_forks(t_data *data);
 int		create_threads(t_data *data);
 void	join_thread(t_data *data);
 
-int		simulate_finished(t_data *data);
-int		simulate_death(t_data *data);
 void	*monitor_routine(void *arg);
 
 int		full(t_philos *philo);

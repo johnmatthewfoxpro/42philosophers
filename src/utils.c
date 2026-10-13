@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: j.fox <jfox.42angouleme@gmail.com>         +#+  +:+       +#+        */
+/*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 14:12:26 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/10 10:38:25 by j.fox            ###   ########.fr       */
+/*   Updated: 2026/10/13 18:23:42 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,23 @@ int	is_valid_number(char *arg)
 	return (0);
 }
 
+static int	simulate_death(t_data *data)
+{
+	int	death;
+
+	pthread_mutex_lock(&data->dead_ok);
+	death = data->end;
+	pthread_mutex_unlock(&data->dead_ok);
+	return (death);
+}
+
 void	print_output(t_philos *philo, char *output)
 {
 	ssize_t	time;
 
 	pthread_mutex_lock(&philo->data->print_ok);
 	time = get_time() - philo->data->sim_start;
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (simulate_death(philo->data))
 	{
 		pthread_mutex_unlock(&philo->data->print_ok);
 		return ;

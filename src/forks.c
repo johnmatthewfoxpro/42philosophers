@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 16:01:18 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 14:26:16 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 18:30:39 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,40 @@
 int	even_forks(t_philos *philo)
 {
 	pthread_mutex_lock(philo->right_fork);
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (philo->end)
 	{
 		pthread_mutex_unlock(philo->right_fork);
 		return (1);
 	}
-	print_output(philo, "has taken a right fork");
+	print_output(philo, "has taken a fork");
 	pthread_mutex_lock(philo->left_fork);
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (philo->end)
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
 		return (1);
 	}
-	print_output(philo, "has taken a left fork");
+	print_output(philo, "has taken a fork");
 	return (0);
 }
 
 int	odd_forks(t_philos *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (philo->end)
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		return (1);
 	}
-	print_output(philo, "has taken a left fork");
+	print_output(philo, "has taken a fork");
 	pthread_mutex_lock(philo->right_fork);
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (philo->end)
 	{
 		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_unlock(philo->left_fork);
 		return (1);
 	}
-	print_output(philo, "has taken a right fork");
+	print_output(philo, "has taken a fork");
 	return (0);
 }
 
@@ -59,10 +59,9 @@ void	assign_forks(t_data *data)
 	i = 0;
 	while (i < data->number_of_philos)
 	{
-		data->philos[i].right_fork = &data->forks[i];
-		// printf("philo %d has right fork %p\n", i + 1, data->philos[i].right_fork);
-		data->philos[i].left_fork = &data->forks[(i + 1) % data->number_of_philos];
-		// printf("philo %d has left  fork %p\n", i + 1, data->philos[i].left_fork);
+		data->philos[i].right_fork = &data->forks[i];;
+		data->philos[i].left_fork = &data->forks[(i + 1)
+			% data->number_of_philos];
 		i++;
 	}
 	return ;

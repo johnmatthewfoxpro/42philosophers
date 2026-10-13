@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:18:36 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 15:11:22 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 17:44:38 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	pickup_fork(t_philos *philo)
 
 int	eat(t_philos *philo)
 {
-	if (simulate_death(philo->data) || simulate_finished(philo->data))
+	if (philo->end)
 		return (1);
 	pthread_mutex_lock(&philo->meal_ok);
 	philo->last_eat = get_time();

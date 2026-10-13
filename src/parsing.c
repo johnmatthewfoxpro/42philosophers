@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 15:52:37 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 11:08:46 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 17:44:28 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ int	init_data(t_data *data, int argc, char **argv)
 		data->no_to_eat = ft_atoi(argv[5]);
 	else
 		data->no_to_eat = -1;
-	data->all_eaten = 0;
-	data->dead = 0;
+	data->end = 0;
 	data->sim_start = 0;
 	data->philos = 0;
 	data->fork_mut = 0;

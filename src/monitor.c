@@ -6,21 +6,11 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 16:09:43 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/12 19:48:27 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 18:23:27 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	simulate_finished(t_data *data)
-{
-	int	finished;
-
-	pthread_mutex_lock(&data->finished_ok);
-	finished = data->all_eaten;
-	pthread_mutex_unlock(&data->finished_ok);
-	return (finished);
-}
 
 static void	all_finished(t_data *data)
 {
@@ -34,19 +24,9 @@ static void	all_finished(t_data *data)
 		i++;
 	}
 	pthread_mutex_lock(&data->finished_ok);
-	data->all_eaten = 1;
+	data->end = 1;
 	pthread_mutex_unlock(&data->finished_ok);
 	return ;
-}
-
-int	simulate_death(t_data *data)
-{
-	int	death;
-
-	pthread_mutex_lock(&data->dead_ok);
-	death = data->dead;
-	pthread_mutex_unlock(&data->dead_ok);
-	return (death);
 }
 
 static void	death(t_philos *philo)
@@ -56,9 +36,9 @@ static void	death(t_philos *philo)
 	data = philo->data;
 	pthread_mutex_lock(&data->print_ok);
 	pthread_mutex_lock(&data->dead_ok);
-	if (!data->dead)
+	if (!data->end)
 	{
-		data->dead = 1;
+		data->end = 1;
 		printf("%zd %d died\n", get_time() - data->sim_start, philo->id);
 	}
 	pthread_mutex_unlock(&data->dead_ok);
@@ -73,7 +53,7 @@ void	*monitor_routine(void *arg)
 	ssize_t	last_eat;
 
 	data = (t_data *)arg;
-	while (!simulate_death(data) && !simulate_finished(data))
+	while (!data->end)
 	{
 		i = 0;
 		while (i < data->number_of_philos)

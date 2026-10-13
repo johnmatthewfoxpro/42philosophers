@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/05 13:11:22 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/13 14:36:23 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/13 17:53:47 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_usleep(ssize_t milliseconds, t_data *data)
 	start = get_time();
 	while ((get_time() - start) < milliseconds)
 	{
-		if (simulate_death(data) || simulate_finished(data))
+		if (data->end)
 			return (1);
 		usleep(10);
 	}
