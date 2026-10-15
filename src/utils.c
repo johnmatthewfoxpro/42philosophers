@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 14:12:26 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/13 18:23:42 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/14 18:47:13 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,6 @@ int	is_valid_number(char *arg)
 	if (ft_atoi(arg) == 0)
 		return (1);
 	return (0);
-}
-
-static int	simulate_death(t_data *data)
-{
-	int	death;
-
-	pthread_mutex_lock(&data->dead_ok);
-	death = data->end;
-	pthread_mutex_unlock(&data->dead_ok);
-	return (death);
 }
 
 void	print_output(t_philos *philo, char *output)

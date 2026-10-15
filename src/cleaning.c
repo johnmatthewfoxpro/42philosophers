@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 15:55:51 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/08 15:38:56 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 10:25:47 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	clean(t_data *data)
 		free(data->philos);
 	if (data->print_mut)
 		pthread_mutex_destroy(&data->print_ok);
-	if (data->dead_mut)
-		pthread_mutex_destroy(&data->dead_ok);
 	if (data->fin_mut)
 		pthread_mutex_destroy(&data->finished_ok);
 	return ;

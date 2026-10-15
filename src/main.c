@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:19 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 18:56:20 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 10:17:32 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static int	init_philos(t_data *data)
 	{
 		data->philos[i].id = i + 1;
 		data->philos[i].eaten = 0;
-		data->philos[i].end = data->end;
 		data->philos[i].last_eat = 0;
 		data->philos[i].data = data;
 		data->philos[i].meal_mut = 0;
@@ -49,6 +48,7 @@ static int	init_sim(t_data *data)
 		return (1);
 	}
 	assign_forks(data);
+	data->sim_start = get_time();
 	return (0);
 }
 

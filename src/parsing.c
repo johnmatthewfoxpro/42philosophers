@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 15:52:37 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 17:44:28 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 10:53:44 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,9 @@ static int	data_mutex_init(t_data *data)
 {
 	if (!pthread_mutex_init(&data->print_ok, NULL))
 		data->print_mut = 1;
-	if (!pthread_mutex_init(&data->dead_ok, NULL))
-		data->dead_mut = 1;
 	if (!pthread_mutex_init(&data->finished_ok, NULL))
 		data->fin_mut = 1;
-	if (data->print_mut && data->dead_mut && data->fin_mut)
+	if (data->print_mut && data->fin_mut)
 		return (0);
 	return (1);
 }
@@ -56,7 +54,6 @@ int	init_data(t_data *data, int argc, char **argv)
 	data->philos = 0;
 	data->fork_mut = 0;
 	data->print_mut = 0;
-	data->dead_mut = 0;
 	data->fin_mut = 0;
 	if (data_mutex_init(data))
 	{

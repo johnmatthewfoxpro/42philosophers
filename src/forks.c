@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 16:01:18 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/13 19:15:28 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 09:55:09 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	even_forks(t_philos *philo)
 {
 	pthread_mutex_lock(philo->right_fork);
-	if (philo->end)
+	if (simulate_death(philo->data))
 	{
 		pthread_mutex_unlock(philo->right_fork);
 		return (1);
 	}
 	print_output(philo, "has taken a fork");
 	pthread_mutex_lock(philo->left_fork);
-	if (philo->end)
+	if (simulate_death(philo->data))
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
@@ -35,14 +35,14 @@ int	even_forks(t_philos *philo)
 int	odd_forks(t_philos *philo)
 {
 	pthread_mutex_lock(philo->left_fork);
-	if (philo->end)
+	if (simulate_death(philo->data))
 	{
 		pthread_mutex_unlock(philo->left_fork);
 		return (1);
 	}
 	print_output(philo, "has taken a fork");
 	pthread_mutex_lock(philo->right_fork);
-	if (philo->end)
+	if (simulate_death(philo->data))
 	{
 		pthread_mutex_unlock(philo->right_fork);
 		pthread_mutex_unlock(philo->left_fork);
