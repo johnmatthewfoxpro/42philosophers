@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 14:23:21 by jfox              #+#    #+#             */
-/*   Updated: 2026/10/15 15:00:29 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 15:20:10 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static void	*odd_philo_routine(void *arg)
 	t_philos	*philo;
 
 	philo = (t_philos *)arg;
-	if (philo->data->number_of_philos % 2 == 0)
-		ft_usleep(10, philo->data);
 	while (!simulate_death(philo->data))
 	{
 		if (pickup_fork(philo))

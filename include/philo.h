@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/15 14:25:10 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/15 15:06:57 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_philos
 {
 	int				id;
 	int				eaten;
-	// int				*end;
 	ssize_t			last_eat;
 	pthread_t		thread;
 	pthread_mutex_t	*left_fork;
@@ -49,8 +48,6 @@ typedef struct s_data
 	int				fork_mut;
 	pthread_mutex_t	print_ok;
 	int				print_mut;
-	// pthread_mutex_t	dead_ok;
-	// int				dead_mut;
 	pthread_mutex_t	finished_ok;
 	int				fin_mut;
 	pthread_t		monitor;
