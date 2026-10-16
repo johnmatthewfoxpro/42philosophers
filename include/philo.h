@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 17:45:13 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/15 15:06:57 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/16 16:30:20 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	assign_forks(t_data *data);
 
 int		create_threads(t_data *data);
 void	join_thread(t_data *data);
-
-int		determine_routine(t_data *data, int i);
 
 int		all_finished(t_data *data);
 void	death(t_philos *philo);

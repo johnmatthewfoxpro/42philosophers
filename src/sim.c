@@ -6,7 +6,7 @@
 /*   By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 15:18:36 by j.fox             #+#    #+#             */
-/*   Updated: 2026/10/15 12:12:25 by jfox             ###   ########.fr       */
+/*   Updated: 2026/10/16 16:33:43 by jfox             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ int	philosophize_this(t_philos *philo)
 	if (ft_usleep(philo->data->time_to_eat - philo->data->time_to_sleep,
 			philo->data))
 		return (1);
-	if (philo->data->number_of_philos % 2 == 0)
-		ft_usleep(1, philo->data);
 	usleep(500);
 	return (0);
 }

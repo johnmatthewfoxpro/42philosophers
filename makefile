@@ -6,7 +6,7 @@
 #    By: jfox <jfox.42angouleme@gmail.com>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/25 17:44:49 by j.fox             #+#    #+#              #
-#    Updated: 2026/10/15 14:25:22 by jfox             ###   ########.fr        #
+#    Updated: 2026/10/16 16:31:43 by jfox             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC =	main.c \
 		time.c \
 		utils.c \
 		threads.c \
-		routine.c \
 		sim.c \
 		monitor.c \
 		cleaning.c
