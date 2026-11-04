@@ -24,7 +24,6 @@ int	ft_usleep(ssize_t milliseconds, t_data *data)
 {
 	ssize_t	start;
 
-	(void)data;
 	start = get_time();
 	while ((get_time() - start) < milliseconds)
 	{
