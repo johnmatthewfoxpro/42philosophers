@@ -50,7 +50,6 @@ typedef struct s_data
 	int				print_mut;
 	pthread_mutex_t	finished_ok;
 	int				fin_mut;
-	pthread_t		monitor;
 }	t_data;
 
 int		init_data(t_data *data, int argc, char **argv);
