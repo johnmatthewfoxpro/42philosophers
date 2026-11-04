@@ -1,7 +1,7 @@
 _This project has been created as part of the 42 curriculum by jfox._
 
 # Philosophers
-In this project we will learn the basics of the threading process. I will learn how to creat threads and explore the use of mutexes.
+In this project we will learn the basics of the threading process. I will learn how to create threads and explore the use of mutexes.
 
 ## Description
 In this project, I will learn the basics of **threading** and **mutexes** by implementing the classic **Dining Philosophers** problem.
